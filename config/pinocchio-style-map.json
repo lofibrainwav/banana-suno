@@ -1,0 +1,14 @@
+{
+  "moods": {
+    "lonely": ["lofi", "slow", "minor"],
+    "happy": ["pop", "major", "bright"],
+    "melancholy": ["ambient", "sad", "soft"],
+    "powerful": ["trap", "heavy", "aggressive"]
+  },
+  "tags": {
+    "3am": ["night", "alone", "soft light"],
+    "rain": ["ambient", "wet", "drip"],
+    "female vocal": ["soft", "airy", "emotional"],
+    "drake": ["rnb", "slow", "emotional"]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "Suno Auto Generator",
+  "nodes": [
+    {
+      "name": "Receive Input",
+      "type": "webhook",
+      "parameters": {
+        "path": "suno-generate",
+        "method": "POST"
+      }
+    },
+    {
+      "name": "Generate Prompt",
+      "type": "function",
+      "parameters": {
+        "code": "// 여기에 Pinocchio 스타일 분석 코드 작성"
+      }
+    },
+    {
+      "name": "Call Suno API",
+      "type": "httpRequest",
+      "parameters": {
+        "url": "https://studio-api.suno.ai/api/generate/v2/",
+        "method": "POST",
+        "authentication": "headerAuth",
+        "headerParameters": {
+          "Authorization": "Bearer {{ $json["token"] }}",
+          "Content-Type": "application/json"
+        },
+        "bodyParameters": {
+          "prompt": "{{ $json["prompt"] }}",
+          "tags": "{{ $json["tags"] }}",
+          "mv": false,
+          "continue_clip_id": null
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Receive Input": {
+      "main": [["Generate Prompt"]]
+    },
+    "Generate Prompt": {
+      "main": [["Call Suno API"]]
+    }
+  }
+}
