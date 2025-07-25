@@ -1,0 +1,126 @@
+{
+  "budgetPlan": {
+    "lastUpdated": "2025-07-24",
+    "currency": "USD",
+    "monthlyCosts": {
+      "sunoApi": {
+        "low": 50,
+        "high": 200,
+        "description": "Suno API usage (gcui-art/suno-api or PiAPI)",
+        "details": {
+          "gcuiArt": {
+            "costPerGeneration": 0.144,
+            "additionalCosts": "2Captcha service ($20-50/month)",
+            "freeCredits": "50 credits daily"
+          },
+          "piApi": {
+            "costPerGeneration": 0.02,
+            "additionalCosts": "None",
+            "freeCredits": "Limited"
+          }
+        }
+      },
+      "emotionAnalysis": {
+        "low": 30,
+        "high": 50,
+        "description": "Emotion analysis API (Symanto or NLPCloud)",
+        "details": {
+          "symanto": {
+            "monthlyCost": 50,
+            "features": "7 emotions, Korean support TBD"
+          },
+          "nlpCloud": {
+            "monthlyCost": 30,
+            "features": "Research-proven performance"
+          }
+        }
+      },
+      "captchaService": {
+        "low": 20,
+        "high": 50,
+        "description": "2Captcha service for Suno API",
+        "details": {
+          "service": "2Captcha/ruCaptcha",
+          "costPer1000": 3,
+          "estimatedUsage": "1000-5000 CAPTCHAs/month"
+        }
+      },
+      "googleDrive": {
+        "low": 0,
+        "high": 0,
+        "description": "Google Drive API (free tier)",
+        "details": {
+          "freeStorage": "15GB",
+          "apiCalls": "Unlimited",
+          "upgradeCost": "2TB for $10/month if needed"
+        }
+      },
+      "raycast": {
+        "low": 0,
+        "high": 0,
+        "description": "Raycast API (free)",
+        "details": {
+          "cost": "Free",
+          "limitation": "macOS only"
+        }
+      },
+      "n8n": {
+        "low": 0,
+        "high": 0,
+        "description": "n8n automation platform",
+        "details": {
+          "selfHosted": "Free",
+          "cloudOption": "From $20/month",
+          "recommendation": "Self-hosted for cost savings"
+        }
+      }
+    },
+    "annualCosts": {
+      "low": 1440,
+      "high": 3600,
+      "average": 2520
+    },
+    "costBreakdown": {
+      "byService": {
+        "sunoApi": "40-60%",
+        "emotionAnalysis": "15-20%",
+        "captchaService": "15-25%",
+        "other": "5-10%"
+      },
+      "byPhase": {
+        "development": "0% (one-time setup)",
+        "production": "100% (ongoing costs)"
+      }
+    },
+    "costOptimization": {
+      "strategies": [
+        "Use PiAPI instead of gcui-art/suno-api to avoid CAPTCHA costs",
+        "Test emotion analysis APIs to find most cost-effective option",
+        "Implement caching to reduce API calls",
+        "Monitor usage and set up alerts",
+        "Consider bulk purchasing for high-volume usage"
+      ],
+      "riskMitigation": [
+        "Set monthly budget limits",
+        "Implement usage monitoring",
+        "Have fallback options for each service",
+        "Regular cost reviews and optimization"
+      ]
+    },
+    "budgetRecommendations": {
+      "development": {
+        "estimatedCost": 0,
+        "description": "Development costs are minimal (mostly time)"
+      },
+      "testing": {
+        "estimatedCost": 100,
+        "description": "API testing costs during development"
+      },
+      "production": {
+        "monthlyBudget": 200,
+        "annualBudget": 2400,
+        "description": "Recommended monthly budget for production use"
+      }
+    }
+  }
+} 
