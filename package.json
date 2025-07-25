@@ -1,16 +1,19 @@
 {
   "name": "jadaking-actor",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Enhanced Apify Actor with modular architecture, error handling, and comprehensive testing",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "start": "node main.js",
+    "start:enhanced": "NODE_ENV=development node main.js",
     "start:refactored": "node main-refactored.js",
     "dev": "NODE_ENV=development node main-refactored.js",
-    "prod": "NODE_ENV=production node main-refactored.js"
+    "prod": "NODE_ENV=production node main-refactored.js",
+    "lint": "echo 'Linting not configured yet'",
+    "validate": "node -c main.js && node -c main-refactored.js"
   },
   "keywords": [],
   "author": "",
