@@ -1,5 +1,10 @@
 const { Actor } = require('apify');
 
+// Memory optimization: Enable garbage collection
+if (global.gc) {
+    global.gc();
+}
+
 /**
  * Enhanced Jadaking Actor with improved error handling and validation
  * @version 2.0
@@ -47,8 +52,14 @@ Actor.main(async () => {
             console.log('📋 Query analysis:', result.queryAnalysis);
         }
 
-        // Push enhanced result
+        // Push enhanced result with memory optimization
         await Actor.pushData(result);
+        
+        // Force garbage collection if available
+        if (global.gc) {
+            global.gc();
+        }
+        
         console.log('✅ Enhanced data pushed successfully!');
         console.log('📊 Result summary:', {
             message: result.message,
