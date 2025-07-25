@@ -1,0 +1,111 @@
+{
+  "requirements": {
+    "functional": {
+      "inputProcessing": {
+        "naturalLanguageInput": {
+          "description": "형의 자연어 감정/상황 묘사 입력 처리",
+          "format": "text",
+          "examples": [
+            "피노키오, 드레이크 스타일의 새벽 감성 노래 만들어줘",
+            "우울한 비 오는 날의 감성적인 팝송",
+            "신나는 파티 분위기의 EDM 트랙"
+          ]
+        },
+        "emotionAnalysis": {
+          "description": "입력 텍스트의 감정 분석",
+          "required": true,
+          "accuracy": "90% 이상"
+        }
+      },
+      "musicGeneration": {
+        "sunoIntegration": {
+          "description": "Suno API를 통한 음악 생성",
+          "api": "비공식 Suno API",
+          "responseTime": "30초 이내",
+          "outputFormat": "MP3"
+        },
+        "promptGeneration": {
+          "description": "감정 분석 결과를 바탕으로 한 프롬프트 생성",
+          "input": "감정 분석 결과 + 스타일 매핑",
+          "output": "Suno API 호환 프롬프트"
+        }
+      },
+      "automation": {
+        "fileManagement": {
+          "description": "생성된 MP3 파일 자동 관리",
+          "download": "자동 다운로드",
+          "organization": "파일 정리 및 분류",
+          "naming": "자동 파일명 생성"
+        },
+        "storageIntegration": {
+          "description": "외부 저장소 자동 연동",
+          "googleDrive": "자동 업로드",
+          "localStorage": "로컬 백업"
+        },
+        "notification": {
+          "description": "작업 완료 알림",
+          "raycast": "로컬 알림",
+          "telegram": "메시지 알림",
+          "discord": "채널 알림"
+        }
+      }
+    },
+    "nonFunctional": {
+      "performance": {
+        "responseTime": "30초 이내 음악 생성 완료",
+        "throughput": "동시 요청 처리 가능",
+        "reliability": "99% 이상 성공률"
+      },
+      "accuracy": {
+        "emotionDetection": "90% 이상 정확도",
+        "styleMapping": "90% 이상 정확도",
+        "musicQuality": "고품질 음악 생성"
+      },
+      "usability": {
+        "userInterface": "간단한 CLI 또는 웹 인터페이스",
+        "automation": "완전 자동화된 워크플로우",
+        "errorHandling": "명확한 에러 메시지 및 복구"
+      },
+      "security": {
+        "apiKeyManagement": "안전한 API 키 저장",
+        "dataPrivacy": "사용자 데이터 보호",
+        "accessControl": "적절한 접근 제어"
+      }
+    },
+    "technical": {
+      "platform": {
+        "operatingSystem": ["macOS", "Linux", "Windows"],
+        "runtime": "Node.js 18+",
+        "memory": "최소 4GB RAM",
+        "storage": "최소 10GB 여유 공간"
+      },
+      "dependencies": {
+        "core": ["TypeScript", "Node.js", "npm/yarn"],
+        "apis": ["axios", "googleapis", "zod"],
+        "testing": ["Jest", "supertest"],
+        "automation": ["n8n"]
+      },
+      "integrations": {
+        "required": ["Suno API", "Google Drive API", "감정 분석 API"],
+        "optional": ["Raycast API", "Telegram Bot API", "Discord Webhook"]
+      }
+    },
+    "constraints": {
+      "budget": {
+        "sunoApi": "$0.04 per generation",
+        "emotionApi": "월 $50 이내",
+        "storage": "Google Drive 무료 티어"
+      },
+      "time": {
+        "development": "4주",
+        "testing": "1주",
+        "deployment": "1주"
+      },
+      "legal": {
+        "apiUsage": "각 API 서비스의 이용약관 준수",
+        "copyright": "생성된 음악의 저작권 고려",
+        "privacy": "개인정보보호법 준수"
+      }
+    }
+  }
+} 

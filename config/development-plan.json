@@ -1,0 +1,146 @@
+{
+  "developmentPlan": {
+    "timeline": "4 weeks",
+    "phases": [
+      {
+        "phase": 1,
+        "name": "프로젝트 초기화",
+        "duration": "1 week",
+        "tasks": [
+          {
+            "task": "Node.js + TypeScript 프로젝트 설정",
+            "priority": "high",
+            "dependencies": [],
+            "deliverables": ["package.json", "tsconfig.json", "기본 프로젝트 구조"]
+          },
+          {
+            "task": "의존성 설치",
+            "priority": "high",
+            "dependencies": ["프로젝트 설정"],
+            "deliverables": ["axios", "zod", "dotenv", "googleapis 설치"]
+          },
+          {
+            "task": "환경변수 설정",
+            "priority": "medium",
+            "dependencies": ["의존성 설치"],
+            "deliverables": [".env 파일", "API 키 관리"]
+          },
+          {
+            "task": "개발 환경 설정",
+            "priority": "medium",
+            "dependencies": ["프로젝트 설정"],
+            "deliverables": ["ESLint", "Prettier", "Jest 설정"]
+          }
+        ]
+      },
+      {
+        "phase": 2,
+        "name": "핵심 API 연동",
+        "duration": "1 week",
+        "tasks": [
+          {
+            "task": "Suno API 클라이언트 구현",
+            "priority": "high",
+            "dependencies": ["프로젝트 초기화"],
+            "deliverables": ["suno-client.ts", "API 호출 로직"]
+          },
+          {
+            "task": "감정 분석 API 연동",
+            "priority": "high",
+            "dependencies": ["프로젝트 초기화"],
+            "deliverables": ["emotion-analyzer.ts", "Symanto API 연동"]
+          },
+          {
+            "task": "프롬프트 생성 엔진",
+            "priority": "high",
+            "dependencies": ["감정 분석 API 연동"],
+            "deliverables": ["prompt-generator.ts", "스타일 매핑 활용"]
+          },
+          {
+            "task": "기본 CLI 인터페이스",
+            "priority": "medium",
+            "dependencies": ["핵심 API 연동"],
+            "deliverables": ["CLI 도구", "기본 명령어"]
+          }
+        ]
+      },
+      {
+        "phase": 3,
+        "name": "자동화 시스템",
+        "duration": "1 week",
+        "tasks": [
+          {
+            "task": "n8n 워크플로우 구현",
+            "priority": "high",
+            "dependencies": ["핵심 API 연동"],
+            "deliverables": ["n8n-suno-automation.json", "자동화 워크플로우"]
+          },
+          {
+            "task": "Google Drive 자동 업로드",
+            "priority": "high",
+            "dependencies": ["핵심 API 연동"],
+            "deliverables": ["google-drive.ts", "파일 업로드 기능"]
+          },
+          {
+            "task": "Raycast 알림 연동",
+            "priority": "medium",
+            "dependencies": ["핵심 API 연동"],
+            "deliverables": ["raycast-notifier.ts", "알림 시스템"]
+          },
+          {
+            "task": "에러 처리 및 재시도 로직",
+            "priority": "medium",
+            "dependencies": ["자동화 시스템"],
+            "deliverables": ["에러 처리", "재시도 메커니즘"]
+          }
+        ]
+      },
+      {
+        "phase": 4,
+        "name": "테스트 및 최적화",
+        "duration": "1 week",
+        "tasks": [
+          {
+            "task": "단위 테스트 작성",
+            "priority": "high",
+            "dependencies": ["핵심 API 연동"],
+            "deliverables": ["Jest 테스트", "코드 커버리지"]
+          },
+          {
+            "task": "통합 테스트",
+            "priority": "high",
+            "dependencies": ["자동화 시스템"],
+            "deliverables": ["E2E 테스트", "시나리오 테스트"]
+          },
+          {
+            "task": "성능 최적화",
+            "priority": "medium",
+            "dependencies": ["통합 테스트"],
+            "deliverables": ["성능 개선", "캐싱 구현"]
+          },
+          {
+            "task": "문서화",
+            "priority": "medium",
+            "dependencies": ["모든 기능 구현"],
+            "deliverables": ["README.md", "API 문서", "사용자 가이드"]
+          }
+        ]
+      }
+    ],
+    "technicalStack": {
+      "language": "TypeScript",
+      "runtime": "Node.js",
+      "framework": "Express.js",
+      "validation": "Zod",
+      "testing": "Jest",
+      "automation": "n8n",
+      "apis": ["Suno API", "Symanto API", "Google Drive API", "Raycast API"]
+    },
+    "successMetrics": {
+      "performance": "30초 이내 음악 생성",
+      "accuracy": "감정/스타일 90% 이상 정확 반영",
+      "reliability": "99% 이상 성공률",
+      "automation": "완전 자동화된 워크플로우"
+    }
+  }
+} 

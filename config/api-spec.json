@@ -1,0 +1,85 @@
+{
+  "apis": {
+    "suno": {
+      "name": "Suno AI Music Generation",
+      "type": "unofficial",
+      "endpoints": {
+        "generate": {
+          "url": "https://studio-api.suno.ai/api/generate/v2/",
+          "method": "POST",
+          "headers": {
+            "Authorization": "Bearer YOUR_ACCESS_TOKEN",
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "prompt": "string",
+            "tags": ["string"],
+            "mv": false,
+            "continue_clip_id": null
+          }
+        },
+        "poll": {
+          "url": "https://studio-api.suno.ai/api/get/",
+          "method": "GET",
+          "params": {
+            "id": "string"
+          }
+        }
+      },
+      "requirements": {
+        "authentication": "Bearer token",
+        "rateLimit": "unknown",
+        "cost": "$0.04 per generation"
+      }
+    },
+    "emotionAnalysis": {
+      "name": "Emotion Analysis API",
+      "type": "third-party",
+      "options": [
+        {
+          "provider": "Symanto",
+          "emotions": ["anger", "contempt", "disgust", "enjoyment", "fear", "sadness", "surprise"],
+          "endpoint": "https://api.symanto.com/emotion-analysis"
+        },
+        {
+          "provider": "NLPCloud",
+          "endpoint": "https://api.nlpcloud.io/sentiment-analysis"
+        }
+      ]
+    },
+    "googleDrive": {
+      "name": "Google Drive API",
+      "type": "official",
+      "endpoints": {
+        "upload": {
+          "url": "https://www.googleapis.com/upload/drive/v3/files",
+          "method": "POST",
+          "headers": {
+            "Authorization": "Bearer YOUR_ACCESS_TOKEN",
+            "Content-Type": "multipart/form-data"
+          }
+        },
+        "list": {
+          "url": "https://www.googleapis.com/drive/v3/files",
+          "method": "GET"
+        }
+      }
+    },
+    "raycast": {
+      "name": "Raycast API",
+      "type": "local",
+      "endpoints": {
+        "notification": {
+          "method": "local",
+          "description": "Raycast extension or local notification"
+        }
+      }
+    }
+  },
+  "workflow": {
+    "n8n": {
+      "template": "https://n8n.io/workflows/3814-generate-ai-songs-music-videos-using-suno-api-flux-runway-and-creatomate/",
+      "description": "AI 음악 생성 자동화 워크플로우"
+    }
+  }
+} 
