@@ -1,0 +1,10 @@
+{
+    "actorSpecification": 1,
+    "name": "jadaking-actor",
+    "title": "Jadaking Actor",
+    "description": "A simple Apify actor for processing queries and returning responses",
+    "version": "1.0.0",
+    "buildTag": "latest",
+    "input": "./INPUT_SCHEMA.json",
+    "dockerfile": "./Dockerfile"
+}

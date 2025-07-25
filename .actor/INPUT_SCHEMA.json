@@ -1,0 +1,1 @@
+{"title":"Jadaking Actor Input","description":"Enter a search query","type":"object","schemaVersion":1,"properties":{"query":{"title":"Search Query","type":"string","description":"Keyword to search","editor":"textfield"}},"required":["query"]}
