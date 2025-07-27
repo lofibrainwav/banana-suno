@@ -42,3 +42,5 @@ temp/
 # Python virtual environment
 .venv/
 dist/
+jadaking-actor@1.0.0
+node
