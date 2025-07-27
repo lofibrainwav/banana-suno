@@ -41,3 +41,4 @@ temp/
 
 # Python virtual environment
 .venv/
+dist/

@@ -96,6 +96,22 @@ npm run test:watch
 npm run test:coverage
 ```
 
+## 🌱 환경 변수 설정
+
+프로젝트 루트에 `.env` 파일을 만들고 [`.env.example`](./.env.example) 내용을 복사해 값을 채워 넣습니다.
+
+```bash
+cp .env.example .env
+```
+
+주요 변수 설명:
+
+- `SUNO_TOKEN`: Suno API 토큰
+- `LOG_LEVEL`: 로깅 레벨
+- `APIFY_ACTOR_ID`: Apify Actor ID
+- `APIFY_ACTOR_RUN_ID`: 실행 ID
+- `NODE_ENV`: 실행 환경
+
 ## 🔧 확장 방법
 
 ### 1. 새 핸들러 추가
