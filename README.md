@@ -2,6 +2,26 @@
 
 확장 가능하고 유연한 구조로 리팩토링된 Apify Actor 프로젝트
 
+
+## 📋 프로젝트 요약
+Banana AI와 Apify Actor를 통해 안전한 MCP 도구 실행 환경을 구축합니다. 세부 목표는 [prd/banana-suno-prd.md](prd/banana-suno-prd.md)에서 확인할 수 있습니다.
+
+## 🛠️ 사전 준비
+- Node.js 18 이상
+- npm
+- TypeScript
+
+## 🚀 초기 설정
+```bash
+npm install
+```
+
+## 💻 예제 스크립트 실행
+```bash
+node main-refactored.js
+node banana-ai-mcp-integration.js
+```
+
 ## 🏗️ 아키텍처 개선사항
 
 ### Before (15줄 모노리틱)
