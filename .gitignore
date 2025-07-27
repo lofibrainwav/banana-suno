@@ -7,10 +7,15 @@ yarn-error.log*
 # Apify storage (generated data)
 storage/
 
+# Compiled output
+dist/
+build/
+
 # Environment variables
 .env
 .env.local
 .env.production
+.env.*
 
 # IDE files
 .vscode/
