@@ -13,14 +13,16 @@
     "dev": "NODE_ENV=development node --expose-gc --max-old-space-size=512 main.js",
     "prod": "NODE_ENV=production node --expose-gc --max-old-space-size=256 main.js",
     "lint": "echo 'Linting not configured yet'",
-    "validate": "node -c main.js && node -c main-refactored.js"
+    "validate": "node -c main.js && node -c main-refactored.js",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "apify": "^3.4.3"
+    "apify": "^3.4.3",
+    "axios": "^1.11.0"
   },
   "devDependencies": {
     "dotenv": "^17.2.1",
