@@ -1,0 +1,64 @@
+[
+  {
+    "id": "flow1",
+    "type": "tab",
+    "label": "Suno Integration",
+    "disabled": false,
+    "info": "Flow for generating prompts, calling Suno, uploading to Drive, and notifying Raycast"
+  },
+  {
+    "id": "inputNode",
+    "type": "inject",
+    "z": "flow1",
+    "name": "Example Input",
+    "props": [{"p": "payload"}],
+    "payload": "{\"artist\":\"Adele\",\"style\":\"ballad\",\"lyrics\":\"Hello from the other side\"}",
+    "payloadType": "json",
+    "once": false,
+    "topic": "",
+    "wires": [["generatePrompt"]]
+  },
+  {
+    "id": "generatePrompt",
+    "type": "function",
+    "z": "flow1",
+    "name": "Generate Prompt",
+    "func": "// Parameters:\n// msg.payload.artist - artist name\n// msg.payload.style - song style\n// msg.payload.lyrics - base lyrics\n// Input example:\n// { artist: 'Adele', style: 'ballad', lyrics: 'Hello from the other side' }\n// Output example:\n// msg.prompt = 'Create a ballad style song for Adele. Lyrics: Hello from the other side'\nconst { artist, style, lyrics } = msg.payload;\nmsg.prompt = `Create a ${style} style song for ${artist}. Lyrics: ${lyrics}`;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "wires": [["sunoApi"]]
+  },
+  {
+    "id": "sunoApi",
+    "type": "function",
+    "z": "flow1",
+    "name": "Call Suno API",
+    "func": "// Input: msg.prompt\n// Output example:\n// msg.suno = { audioUrl: 'https://suno.ai/audio/123.mp3' }\nconst axios = require('axios');\nreturn axios.post('https://api.suno.ai/generate', { prompt: msg.prompt })\n  .then(res => { msg.suno = res.data; return msg; });",
+    "outputs": 1,
+    "noerr": 0,
+    "libs": [{"var":"axios","module":"axios"}],
+    "wires": [["driveUpload"]]
+  },
+  {
+    "id": "driveUpload",
+    "type": "function",
+    "z": "flow1",
+    "name": "Upload to Google Drive",
+    "func": "// Input: msg.suno.audioUrl\n// Output example:\n// msg.drive = { fileId: '1A2B3C' }\nconst { google } = require('googleapis');\nconst axios = require('axios');\nconst drive = google.drive({ version: 'v3' });\n// OAuth setup omitted for brevity\nreturn axios({ url: msg.suno.audioUrl, method: 'GET', responseType: 'stream' })\n  .then(response => drive.files.create({ requestBody: { name: 'suno.mp3' }, media: { mimeType: 'audio/mpeg', body: response.data } }))\n  .then(res => { msg.drive = { fileId: res.data.id }; return msg; });",
+    "outputs": 1,
+    "noerr": 0,
+    "libs": [{"var":"google","module":"googleapis"},{"var":"axios","module":"axios"}],
+    "wires": [["raycastNotify"]]
+  },
+  {
+    "id": "raycastNotify",
+    "type": "function",
+    "z": "flow1",
+    "name": "Send Raycast Notification",
+    "func": "// Input: msg.drive.fileId\n// Output: msg\nconst axios = require('axios');\nreturn axios.post('https://api.raycast.com/notify', { fileId: msg.drive.fileId })\n  .then(() => msg);",
+    "outputs": 1,
+    "noerr": 0,
+    "libs": [{"var":"axios","module":"axios"}],
+    "wires": []
+  }
+]
