@@ -22,7 +22,7 @@
   "type": "commonjs",
   "dependencies": {
     "apify": "^3.4.3",
-    "axios": "^1.11.0"
+    "axios": "^1.12.1"
   },
   "devDependencies": {
     "dotenv": "^17.2.1",
